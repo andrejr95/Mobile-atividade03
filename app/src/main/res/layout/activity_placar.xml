@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/placar_background"
+    tools:context=".PlacarActivity">
+
+    <LinearLayout
+        android:id="@+id/placar_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/timeA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="@string/placar_nome_time_a"
+                android:padding="16dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:inputType="textCapWords" />
+
+            <TextView
+                android:id="@+id/placarTimeA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="0"
+                android:textSize="56sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/tresPontosA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/custom_button_placar"
+                android:textColor="?attr/colorOnPrimary"
+                android:text="@string/placar_tres_pontos" />
+
+            <Button
+                android:id="@+id/doisPontosA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/custom_button_placar"
+                android:textColor="?attr/colorOnPrimary"
+                android:text="@string/placar_dois_pontos" />
+
+            <Button
+                android:id="@+id/tiroLivreA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/custom_button_placar"
+                android:textColor="?attr/colorOnPrimary"
+                android:text="@string/placar_tiro_livre" />
+
+            <Button
+                android:id="@+id/faltaTimeA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/custom_button_placar"
+                android:textColor="?attr/colorOnPrimary"
+                android:text="@string/placar_uma_falta" />
+
+            <TextView
+                android:id="@+id/contadorFaltasA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/placar_faltas"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="?attr/colorOnSurface"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/timeB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="@string/placar_nome_time_b"
+                android:padding="16dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:inputType="textCapWords"/>
+
+            <TextView
+                android:id="@+id/placarTimeB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="0"
+                android:textSize="56sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/tresPontosB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/custom_button_placar"
+                android:textColor="?attr/colorOnPrimary"
+                android:text="@string/placar_tres_pontos" />
+
+            <Button
+                android:id="@+id/doisPontosB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/custom_button_placar"
+                android:textColor="?attr/colorOnPrimary"
+                android:text="@string/placar_dois_pontos" />
+
+            <Button
+                android:id="@+id/tiroLivreB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/custom_button_placar"
+                android:textColor="?attr/colorOnPrimary"
+                android:text="@string/placar_tiro_livre" />
+
+            <Button
+                android:id="@+id/faltaTimeB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/custom_button_placar"
+                android:textColor="?attr/colorOnPrimary"
+                android:text="@string/placar_uma_falta" />
+
+            <TextView
+                android:id="@+id/contadorFaltasB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/placar_faltas"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/reiniciarPartida"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_buttons_placar"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="16dp"
+        android:text="@string/placar_reiniciar" />
+
+    <LinearLayout
+        android:id="@+id/bottom_buttons_placar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end|center_vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="16dp">
+
+        <Button
+            android:id="@+id/btnToggleThemePlacar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/toggle_theme"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnHomePlacar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back_to_hub" />
+
+    </LinearLayout>
+
+</RelativeLayout>

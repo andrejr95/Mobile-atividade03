@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ProjetoHub</string>
+
+    <string name="hub_title">Menu Principal</string>
+    <string name="placar_button">Placar de Basquete</string>
+    <string name="calculadora_button">Calculadora Científica</string>
+    <string name="imc_button">Calculadora de IMC</string>
+    <string name="back_to_hub">Voltar para o Hub</string>
+    <string name="toggle_theme">Alternar Tema</string>
+
+    <string name="placar_nome_time_a">Nome do Time A</string>
+    <string name="placar_nome_time_b">Nome do Time B</string>
+    <string name="placar_tres_pontos">+3 PONTOS</string>
+    <string name="placar_dois_pontos">+2 PONTOS</string>
+    <string name="placar_tiro_livre">Tiro Livre</string>
+    <string name="placar_uma_falta">+1 Falta</string>
+    <string name="placar_faltas">Faltas: %d</string>
+    <string name="placar_reiniciar">Reiniciar Partida</string>
+
+    <string name="calc_title">Minha Calculadora</string>
+    <string name="calc_divisao_por_zero">Divisão por zero</string>
+    <string name="op_somar">+</string>
+    <string name="op_subtrair">-</string>
+    <string name="op_multiplicar">×</string>
+    <string name="op_dividir">÷</string>
+    <string name="op_igual">=</string>
+    <string name="op_clear">C</string>
+    <string name="op_backspace">⌫</string>
+    <string name="op_ponto">.</string>
+
+    <string name="imc_title">Calculadora de IMC</string>
+    <string name="imc_peso_hint">Peso (kg)</string>
+    <string name="imc_altura_hint">Altura (cm)</string>
+    <string name="imc_calculate_button">Calcular IMC</string>
+    <string name="imc_result">Seu IMC: %.2f</string>
+    <string name="imc_status_title">Status de Peso:\n%s</string>
+    <string name="imc_preencher_campos">Por favor, preencha todos os campos.</string>
+    <string name="imc_valores_validos">Por favor, insira valores válidos.</string>
+    <string name="imc_peso_normal_parabens">Seu peso já está na faixa normal. Parabéns!</string>
+    <string name="imc_peso_ganhar">Você precisa ganhar %.2f kg para atingir o peso normal.</string>
+    <string name="imc_peso_perder">Você precisa perder %.2f kg para atingir o peso normal.</string>
+
+    <string name="status_abaixo_peso">Abaixo de Peso: IMC <![CDATA[<]]> 18,5</string>
+    <string name="status_peso_normal">Peso Normal: 18,5 <![CDATA[<=]]> IMC <![CDATA[<]]> 25</string>
+    <string name="status_sobrepeso">Sobrepeso: 25 <![CDATA[<=]]> IMC <![CDATA[<]]> 30</string>
+    <string name="status_obesidade_1">Obesidade Grau I: 30 <![CDATA[<=]]> IMC <![CDATA[<]]> 35</string>
+    <string name="status_obesidade_2">Obesidade Grau II: 35 <![CDATA[<=]]> IMC <![CDATA[<]]> 40</string>
+    <string name="status_obesidade_morbida">Obesidade Mórbida: IMC <![CDATA[>=]]> 40</string>
+</resources>

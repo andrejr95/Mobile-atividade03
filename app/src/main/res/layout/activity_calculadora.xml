@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/calc_background"
+    android:padding="0dp">
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/calc_title"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_large"
+        android:textColor="@color/calc_text_color"
+        android:paddingTop="@dimen/padding_normal"
+        android:paddingBottom="@dimen/padding_normal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle"
+        app:layout_constraintBottom_toTopOf="@id/bottom_buttons_calc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/calc_background"
+            android:padding="@dimen/padding_normal">
+
+            <TextView
+                android:id="@+id/txtHistory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text=""
+                android:textColor="@color/calc_text_color"
+                android:textSize="@dimen/text_size_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtResultado"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="end"
+                android:text="0"
+                android:textColor="@color/calc_text_color"
+                android:textSize="48sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtHistory" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:columnCount="4"
+                android:rowCount="5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtResultado">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnClear"
+                    style="@style/Widget.Material3.Button"
+                    android:text="@string/op_clear"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/operation_button_calc" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBackspace"
+                    style="@style/Widget.Material3.Button"
+                    android:text="@string/op_backspace"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/operation_button_calc" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDividir"
+                    style="@style/Widget.Material3.Button"
+                    android:text="@string/op_dividir"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/operation_button_calc" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMultiplicar"
+                    style="@style/Widget.Material3.Button"
+                    android:text="@string/op_multiplicar"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/operation_button_calc" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn7"
+                    style="@style/Widget.Material3.Button"
+                    android:text="7"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/numbers_button_calc" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn8"
+                    style="@style/Widget.Material3.Button"
+                    android:text="8"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/numbers_button_calc" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn9"
+                    style="@style/Widget.Material3.Button"
+                    android:text="9"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/numbers_button_calc" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSubtrair"
+                    style="@style/Widget.Material3.Button"
+                    android:text="@string/op_subtrair"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/operation_button_calc" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn4"
+                    style="@style/Widget.Material3.Button"
+                    android:text="4"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/numbers_button_calc" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn5"
+                    style="@style/Widget.Material3.Button"
+                    android:text="5"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/numbers_button_calc" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn6"
+                    style="@style/Widget.Material3.Button"
+                    android:text="6"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/numbers_button_calc" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSomar"
+                    style="@style/Widget.Material3.Button"
+                    android:text="@string/op_somar"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/operation_button_calc" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn1"
+                    style="@style/Widget.Material3.Button"
+                    android:text="1"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/numbers_button_calc" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn2"
+                    style="@style/Widget.Material3.Button"
+                    android:text="2"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/numbers_button_calc" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn3"
+                    style="@style/Widget.Material3.Button"
+                    android:text="3"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/numbers_button_calc" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnIgual"
+                    style="@style/Widget.Material3.Button"
+                    android:text="@string/op_igual"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/operation_button_calc" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn0"
+                    style="@style/Widget.Material3.Button"
+                    android:text="0"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/numbers_button_calc" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPonto"
+                    style="@style/Widget.Material3.Button"
+                    android:text="@string/op_ponto"
+                    android:textSize="24sp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/numbers_button_calc" />
+            </GridLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottom_buttons_calc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end|center_vertical"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/btnToggleThemeCalc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/toggle_theme"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnHomeCalc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back_to_hub" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
