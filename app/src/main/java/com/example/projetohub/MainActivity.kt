@@ -1,9 +1,11 @@
 package com.example.projetohub
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.projetohub.R
 
 class MainActivity : AppCompatActivity() {
@@ -26,5 +28,19 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ImcActivity::class.java)
             startActivity(intent)
         }
+
+        findViewById<Button>(R.id.btnToggleThemeMain).setOnClickListener {
+            toggleTheme()
+        }
+    }
+
+    private fun toggleTheme() {
+        val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        val newMode = if (currentNightMode == Configuration.UI_MODE_NIGHT_YES) {
+            AppCompatDelegate.MODE_NIGHT_NO
+        } else {
+            AppCompatDelegate.MODE_NIGHT_YES
+        }
+        AppCompatDelegate.setDefaultNightMode(newMode)
     }
 }

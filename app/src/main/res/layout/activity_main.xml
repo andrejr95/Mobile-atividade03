@@ -39,4 +39,23 @@
         android:layout_margin="@dimen/hub_button_margin"
         android:text="@string/imc_button" />
 
+    <Button
+        android:id="@+id/btnToggleThemeMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/hub_button_margin"
+        android:text="@string/toggle_theme" />
+
+    <ImageView
+        android:id="@+id/hubImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginEnd="@dimen/margin_normal"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/hub"
+        android:contentDescription="@string/hub_title" />
+
 </LinearLayout>
