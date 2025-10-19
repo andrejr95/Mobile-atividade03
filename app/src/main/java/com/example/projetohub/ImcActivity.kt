@@ -9,7 +9,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
-import com.example.projetohub.R
+
 
 class ImcActivity : AppCompatActivity() {
 
