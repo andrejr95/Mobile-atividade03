@@ -3,6 +3,7 @@ package com.example.projetohub
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -11,6 +12,9 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.example.projetohub.R
 
 class CalculadoraActivity : AppCompatActivity() {
+
+    private val TAG = "CalculadoraActivity"
+
     private lateinit var tvDisplay: TextView
     private lateinit var tvHistory: TextView
 
@@ -23,6 +27,7 @@ class CalculadoraActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculadora)
+        Log.i(TAG, "CalculadoraActivity iniciada. (Nível Info)") // Evento importante
 
         tvDisplay = findViewById(R.id.txtResultado)
         tvHistory = findViewById(R.id.txtHistory)
@@ -50,14 +55,15 @@ class CalculadoraActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnClear).setOnClickListener { clearAll() }
         findViewById<Button>(R.id.btnBackspace).setOnClickListener { backspace() }
 
-        // Referenciando os botões na nova hierarquia de layout
         findViewById<Button>(R.id.btnHomeCalc).setOnClickListener {
+            Log.v(TAG, "Retornando ao Hub. (Nível Verbose)") // Fluxo de navegação detalhado
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
 
         findViewById<Button>(R.id.btnToggleThemeCalc).setOnClickListener {
+            Log.v(TAG, "Tentativa de alternar o tema da Calculadora. (Nível Verbose)") // Ação detalhada
             toggleTheme()
         }
 
@@ -74,6 +80,7 @@ class CalculadoraActivity : AppCompatActivity() {
         }
         if (d == "." && currentInput.contains(".")) return
         currentInput = if (currentInput == "0") d else currentInput + d
+        Log.d(TAG, "Dígito '$d' anexado. Entrada atual: $currentInput. (Nível Debug)") // Mudança de estado
         updateDisplay()
     }
 
@@ -96,6 +103,7 @@ class CalculadoraActivity : AppCompatActivity() {
             currentInput = ""
         }
         pendingOp = op
+        Log.d(TAG, "Operador '$op' armazenado. Entrada atual: $currentInput. (Nível Debug)") // Mudança de estado
         updateDisplay()
         updateHistoryDisplay()
     }
@@ -113,21 +121,28 @@ class CalculadoraActivity : AppCompatActivity() {
             pendingOp = null
             isResultDisplayed = true
 
+            Log.d(TAG, "Operação concluída. Resultado: $currentInput. (Nível Debug)") // Resultado de cálculo
+
             updateDisplay()
             updateHistoryDisplay()
         }
     }
 
     private fun performOperation(a: Double, b: Double, op: String?): Double {
+        Log.v(TAG, "Executando operação: $a $op $b. (Nível Verbose)") // Detalhe da execução
         return when (op) {
             getString(R.string.op_somar) -> a + b
             getString(R.string.op_subtrair) -> a - b
             getString(R.string.op_multiplicar) -> a * b
             getString(R.string.op_dividir) -> if (b == 0.0) {
+                Log.e(TAG, "Erro Crítico: Divisão por zero detectada. (Nível Error)") // Erro de execução
                 Toast.makeText(this, getString(R.string.calc_divisao_por_zero), Toast.LENGTH_SHORT).show()
                 a
             } else a / b
-            else -> b
+            else -> {
+                Log.w(TAG, "Aviso: Operador '$op' não tratado ou nulo. (Nível Warn)") // Problema recuperável
+                b
+            }
         }
     }
 
@@ -137,6 +152,7 @@ class CalculadoraActivity : AppCompatActivity() {
         pendingOp = null
         historyText = ""
         isResultDisplayed = false
+        Log.i(TAG, "Calculadora resetada. (Nível Info)") // Evento importante
         updateDisplay()
         updateHistoryDisplay()
     }
@@ -144,6 +160,7 @@ class CalculadoraActivity : AppCompatActivity() {
     private fun backspace() {
         if (currentInput.isNotEmpty()) {
             currentInput = currentInput.dropLast(1)
+            Log.v(TAG, "Backspace executado. Entrada atual: $currentInput. (Nível Verbose)") // Detalhe da ação
             updateDisplay()
         }
     }

@@ -3,13 +3,17 @@ package com.example.projetohub
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import com.example.projetohub.R
 
 class ImcActivity : AppCompatActivity() {
+
+    private val TAG = "ImcActivity"
 
     private lateinit var pesoEditText: EditText
     private lateinit var alturaEditText: EditText
@@ -22,6 +26,7 @@ class ImcActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_imc)
+        Log.i(TAG, "ImcActivity iniciada. (Nível Info)") // Evento importante
 
         pesoEditText = findViewById(R.id.pesoEditText)
         alturaEditText = findViewById(R.id.alturaEditText)
@@ -32,16 +37,19 @@ class ImcActivity : AppCompatActivity() {
         statusImageView = findViewById(R.id.statusImageView)
 
         calculateButton.setOnClickListener {
+            Log.v(TAG, "Botão 'Calcular IMC' clicado. Iniciando validação. (Nível Verbose)") // Ação detalhada
             calculateIMC()
         }
 
         findViewById<Button>(R.id.btnHomeImc).setOnClickListener {
+            Log.v(TAG, "Retornando ao Hub. (Nível Verbose)") // Fluxo de navegação detalhado
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
 
         findViewById<Button>(R.id.btnToggleThemeImc).setOnClickListener {
+            Log.v(TAG, "Tentativa de alternar o tema da IMC. (Nível Verbose)") // Ação detalhada
             toggleTheme()
         }
     }
@@ -58,15 +66,16 @@ class ImcActivity : AppCompatActivity() {
                 val alturaMetros = altura / 100.0
                 val imc = peso / (alturaMetros * alturaMetros)
 
-                imcTextView.text = getString(R.string.imc_result, imc)
-
                 val status = getStatusForIMC(imc)
+                Log.d(TAG, "Cálculo IMC realizado: IMC=$imc. Status: $status. (Nível Debug)") // Resultado do cálculo
+
+                imcTextView.text = getString(R.string.imc_result, imc)
                 resultTextView.text = getString(R.string.imc_status_title, status)
                 resultTextView.setTextColor(ContextCompat.getColor(this, getColorForStatus(status)))
 
                 val pesoIdealMessage = calculatePesoIdeal(peso, alturaMetros, imc)
                 pesoIdealTextView.text = pesoIdealMessage
-                pesoIdealTextView.visibility = View.VISIBLE // Adicionado: torna a view visível
+                pesoIdealTextView.visibility = View.VISIBLE
 
                 val imageResId = getImageForStatus(status)
                 if (imageResId != 0) {
@@ -75,15 +84,18 @@ class ImcActivity : AppCompatActivity() {
                 } else {
                     statusImageView.visibility = View.GONE
                 }
+
             } else {
+                Log.w(TAG, "Aviso: Valores de entrada (peso/altura) inválidos (<= 0). (Nível Warn)") // Validação de entrada
                 Toast.makeText(this, R.string.imc_valores_validos, Toast.LENGTH_SHORT).show()
-                pesoIdealTextView.visibility = View.GONE // Adicionado: esconde a view em caso de erro
-                statusImageView.visibility = View.GONE // Adicionado: esconde a imagem em caso de erro
+                pesoIdealTextView.visibility = View.GONE
+                statusImageView.visibility = View.GONE
             }
         } else {
+            Log.w(TAG, "Aviso: Campos de peso ou altura não preenchidos. (Nível Warn)") // Validação de entrada
             Toast.makeText(this, R.string.imc_preencher_campos, Toast.LENGTH_SHORT).show()
-            pesoIdealTextView.visibility = View.GONE // Adicionado: esconde a view em caso de erro
-            statusImageView.visibility = View.GONE // Adicionado: esconde a imagem em caso de erro
+            pesoIdealTextView.visibility = View.GONE
+            statusImageView.visibility = View.GONE
         }
     }
 
@@ -129,13 +141,18 @@ class ImcActivity : AppCompatActivity() {
         return when {
             imc < 18.5 -> {
                 val pesoGanhar = pesoMinimoNormal - peso
+                Log.d(TAG, "Sugestão de Peso: Ganhar ${"%.2f".format(pesoGanhar)} kg. (Nível Debug)") // Detalhe do resultado
                 getString(R.string.imc_peso_ganhar, pesoGanhar)
             }
             imc > 24.9 -> {
                 val pesoPerder = peso - pesoMaximoNormal
+                Log.d(TAG, "Sugestão de Peso: Perder ${"%.2f".format(pesoPerder)} kg. (Nível Debug)") // Detalhe do resultado
                 getString(R.string.imc_peso_perder, pesoPerder)
             }
-            else -> getString(R.string.imc_peso_normal_parabens)
+            else -> {
+                Log.d(TAG, "Sugestão de Peso: Peso Normal. (Nível Debug)") // Detalhe do resultado
+                getString(R.string.imc_peso_normal_parabens)
+            }
         }
     }
 
